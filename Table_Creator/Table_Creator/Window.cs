@@ -11,9 +11,8 @@ namespace Table_Creator
     {
 
         static void Main(string[] args)
-        {
+        {  
             //Main controller of the application
-            Database db = new Database();
             Functionalities fc = new Functionalities();
 
             fc.getTableNames();
@@ -37,8 +36,8 @@ namespace Table_Creator
                 fc.getNumberFromUser();
 
                 //Writing the current value of the furniture and the number
-                fc.writeCurrentFurniture();
-                fc.writeCurrentNumber();
+                fc.getCurrentFurniture();
+                fc.getNumberOfTimes();
 
                 //Choosing the next option (1 or 2) and retrieving the value
                 fc.chooseNextOption();
@@ -50,9 +49,10 @@ namespace Table_Creator
 
             if (selectedOption == '1')
             {
+                Console.Clear();
                 fc.upload();
-                Console.WriteLine("Done");
-                Console.WriteLine("Thanks for checking out my app");
+                Console.WriteLine("Done!");
+                Console.WriteLine("Thanks for checking out my app!");
             }
            
 

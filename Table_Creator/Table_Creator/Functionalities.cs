@@ -7,14 +7,17 @@ using System.IO;
 
 namespace Table_Creator
 {
-    class Functionalities
+    public class Functionalities
     {
         //Every function that is function related is here
 
         String yourFurniture;
         int numberOfTimes;
         Char selectedOption;
+
         Database db;
+
+        String connectionString;
 
         List<String> tableNamesList;
         List<int> tableRowCountList;
@@ -25,6 +28,8 @@ namespace Table_Creator
 
         //Path to the directory, where the tableinfo files are
         String fileDirectoryPath = "tables/";
+
+        //A counter where the program should start with file and table name creation
         int counterStart;
 
         //Variable to check whether the tables are full
@@ -35,26 +40,46 @@ namespace Table_Creator
         //Name of the table
         String tableName;
 
+        //Path to the files
+        String path;
+        String folderName;
+
         //Constructor
         public Functionalities()
         {
+            connectionString = "Data Source=" + Environment.MachineName + ";Initial Catalog=Table_Creator;Integrated Security=True";
+            db = new Database(connectionString);
+
             getNumberOfFilesInDirectory();
 
-            //Create them here, these are used at least 2 times
+            //These are used at least 2 times
             emptyTablesList = new List<string>();
             tableNamesList = new List<string>();
+            folderName = "Tables";
         }
 
         //getter
-        public void writeCurrentFurniture()
+        public void getCurrentFurniture()
         {
             Console.WriteLine("Your furniture: {0}", yourFurniture);
         }
 
+        //setter
+        public void setYourFurniture(String furniture)
+        {
+            yourFurniture = furniture;
+        }
+
         //getter
-        public void writeCurrentNumber()
+        public void getNumberOfTimes()
         {
             Console.WriteLine("Your number: {0}", numberOfTimes);
+        }
+
+        //setter
+        public void setNumberOfTimes(int number)
+        {
+            numberOfTimes = number;
         }
 
         //getter
@@ -64,31 +89,111 @@ namespace Table_Creator
         }
 
         //setter
-        public void setValueOfYourFurniture(String furniture)
-        {
-            yourFurniture = furniture;
-        }
-
-        //setter
-        public void setValueOfNumberOfTimes(int number)
-        {
-            numberOfTimes = number;
-        }
-
-        //setter
-        public void setValueOfSelectedOption(Char option)
+        public void setSelectedOption(Char option)
         {
             selectedOption = option;
         }
 
-        /*This method writes all table names from our database in the console
+        //getter
+        public String getFileDirectoryPath()
+        {
+            return fileDirectoryPath;
+        }
+
+        //setter
+        public void setFileDirectoryPath(String directory)
+        {
+            fileDirectoryPath = directory;
+        }
+
+        //getter
+        public int getCounterStart()
+        {
+            return counterStart;
+        }
+
+        //setter
+        public void setCounterStart(int newCounterStart)
+        {
+            counterStart = newCounterStart;
+        }
+
+        //getter
+        public List<String> getTableNamesList()
+        {
+            return tableNamesList;
+        }
+
+        //setter
+        public void setTableNamesListValue(String[] value)
+        {
+            for(int i = 0; i< value.Length; i++)
+            {
+                tableNamesList.Add(value[i]);
+            }
+        }
+
+        //getter
+        public List<String> getEmptyTablesList()
+        {
+            return emptyTablesList;
+        }
+
+        //setter
+        public void setgetEmptyTablesListValue(String[] value)
+        {
+            for (int i = 0; i < value.Length; i++)
+            {
+                emptyTablesList.Add(value[i]);
+            }
+        }
+
+        //getter
+        public List<int> getTableRowCountList()
+        {
+            return tableRowCountList;
+        }
+
+        //setter
+        public void settableRowCountListalue(int[] value)
+        {
+            for (int i = 0; i < value.Length; i++)
+            {
+                tableRowCountList.Add(value[i]);
+            }
+        }
+
+        //getter
+        public String getFolderName()
+        {
+            return folderName;
+        }
+
+        //setter
+        public void setFolderName(String folder)
+        {
+            folderName = folder;
+        }
+
+        //getter
+        public String getPath()
+        {
+            return path;
+        }
+
+        //setter
+        public void setPath(String path)
+        {
+            this.path = path;
+        }
+
+        /*This method writes all table names from our database to the console
         USE IT FOR DEBUGGING
         
         public void writeAllTableNames()
         {
             tableNames = new List<string>();
 
-            db = new Database();
 
             tableNames = db.getAllTableNames();
 
@@ -108,8 +213,6 @@ namespace Table_Creator
         //This method gets all the unique table names from the database
         public void getTableNames()
         {
-            db = new Database();
-
             tableNamesList = db.getAllTableNames();
         }
 
@@ -117,7 +220,7 @@ namespace Table_Creator
         //This method will check the files for free spaces in the tables
         public void checkFilesForFreeSpaces()
         {
-            String path = ("tables/Furniture");
+            String path = ("" + folderName + "/Furniture");
             freeSpaceDictionary = new Dictionary<string, int>();
 
             tablesAreFull = false;
@@ -167,7 +270,6 @@ namespace Table_Creator
                 double howmanyTimes = Math.Ceiling(Convert.ToDouble(numberOfTimes) / 500);
 
                 String currentTable;
-                db = new Database();
 
                 //Create as many table as needed
                 for (int i = 0; i < howmanyTimes; i++)
@@ -222,7 +324,6 @@ namespace Table_Creator
 
                 String currentTable = freeSpaceDictionary.Keys.Last();
                 int currentFreeSpaces = freeSpaceDictionary.Values.Last();
-                db = new Database();
 
                 //If numberofTimes is more than the current free spaces in the table,
                 //we upload it into the table and subtract the quantity, then create the new tables and upload to the new ones.
@@ -307,28 +408,22 @@ namespace Table_Creator
             }
 
         }
-
-
+        
 
         //this method will create table info files. every file's first row contains the table name.
         //The the second row has the number of rows in the table
         //We create a single file for every table in the database
         public void createTableInfoFiles()
         {
-           
-
             //If there are no tables in the database, we create one file with the default values (FILE NAME: Furniture1,
             //row 1:Furniture1, row2: 0)
-            //
             if(tableNamesList.Count == 0)
             {
-                String path = "tables/Furniture1.txt";
+                path = ""+folderName+"/Furniture1.txt";
 
                 File.WriteAllText(path, "Furniture1" + Environment.NewLine + "0");
 
                 db.createNewTable();
-
-
             }
             else
             {
@@ -341,15 +436,11 @@ namespace Table_Creator
                 {
                     currentTableName = tableNamesList[i];
 
-                    String path = "tables/" + currentTableName + ".txt";
+                    String path = "" + folderName + "/" + currentTableName + ".txt";
 
                     File.WriteAllText(path, currentTableName + Environment.NewLine + tableRowCountList[i]);
-
-
                 }
             }
-
-           
 
         }
 
@@ -446,7 +537,6 @@ namespace Table_Creator
 
             Console.WriteLine("1.) Yes");
             Console.WriteLine("2.) No");
-
 
 
             while (selectedOption != '1' || selectedOption != '2')

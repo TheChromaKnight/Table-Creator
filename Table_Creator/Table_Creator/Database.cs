@@ -9,31 +9,28 @@ using System.Data;
 
 namespace Table_Creator
 {
-    class Database
+    public class Database
     {
         //Every database operation is here
-
-        //Machine name, so the program can run on any PC, which has the database
-        private readonly String PcName = Environment.MachineName;
-
         SqlConnection sqlconn;
         SqlCommand command;
         SqlDataReader reader;
-        SqlDataAdapter adapter;
         DataTable dTable;
+
+        //Machine name, so the program can run on any PC which has the database
         String connectionString;
 
-        public Database()
-        { 
-
+        public Database(String connString)
+        {
+            connectionString = connString;
         }
+
 
         //Creating a new table, starting the table's name with the counterStart variable.
         //The counterStart variable holds the value of the number of files in the directory
         //We create a new table from the (Files.count + 1)
         public void createNewTable(int counterStart)
         {
-            connectionString = "Data Source=" + PcName + ";Initial Catalog=Table_Creator;Integrated Security=True";
             using (sqlconn = new SqlConnection(connectionString))
             {
                 sqlconn.Open();
@@ -51,7 +48,6 @@ namespace Table_Creator
         //Create default table if there aren't any (Default table name: Furniture1, column1: Furniture_Id, column2: Furniture_Name) 
         public void createNewTable()
         {
-            connectionString = "Data Source=" + PcName + ";Initial Catalog=Table_Creator;Integrated Security=True";
             using (sqlconn = new SqlConnection(connectionString))
             {
                 sqlconn.Open();
@@ -69,7 +65,6 @@ namespace Table_Creator
         //Inserts the furniture into a table with a for loop (howManyTimes)
         public void insertIntoDatabase(String tableName, String furnitureName, int howManyTimes)
         {
-            connectionString = "Data Source=" + PcName + ";Initial Catalog=Table_Creator;Integrated Security=True";
             using (sqlconn = new SqlConnection(connectionString))
             {
                 sqlconn.Open();
@@ -91,7 +86,6 @@ namespace Table_Creator
         //Insert once and without for loop
         public void insertIntoDatabase(String tableName, String furnitureName)
         {
-            connectionString = "Data Source=" + PcName + ";Initial Catalog=Table_Creator;Integrated Security=True";
             using (sqlconn = new SqlConnection(connectionString))
             {
                 sqlconn.Open();
@@ -107,10 +101,9 @@ namespace Table_Creator
             }
         }
 
-        //Gets all the unique table names from the database (Unique table names are: Furniture1,2,3,4,5,6 and so on.
+        //Gets all the unique table names from the database (Unique table names are: Furniture1,2,3,4,5,6 and so on).
         public List<String> getAllTableNames()
         {
-            connectionString = "Data Source=" + PcName + ";Initial Catalog=Table_Creator;Integrated Security=True";
             List<String> tableList = new List<string>();
             String tableName;
 
@@ -126,8 +119,6 @@ namespace Table_Creator
                     }
             }
 
-           
-
             return tableList;
 
         }
@@ -136,7 +127,6 @@ namespace Table_Creator
         //This function will return a list from all the tables in the database with the count of rows
         public List<int> getAllTablesRowCount(List<String> tableList)
         {
-            connectionString = "Data Source=" + PcName + ";Initial Catalog=Table_Creator;Integrated Security=True";
             List<int> rowCountList = new List<int>();
 
             using (sqlconn = new SqlConnection(connectionString))
@@ -163,6 +153,30 @@ namespace Table_Creator
 
             return rowCountList;
         }
+
+
+
+
+
+
+
+        /*Testing purposes only
+        public void dropThenCreateDatabase()
+        {
+            using (sqlconn = new SqlConnection(connectionString))
+            {
+                sqlconn.Open();
+                using (command = new SqlCommand())
+                {
+                    command.Connection = sqlconn;
+                    command.CommandText = "Drop database Table_Creator_Test; Create database Table_Creator_Test;";
+
+                    command.ExecuteNonQuery();
+ 
+                }
+            }
+        }
+        */
 
 
     }
