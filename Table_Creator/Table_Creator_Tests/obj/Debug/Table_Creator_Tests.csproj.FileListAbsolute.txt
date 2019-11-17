@@ -1,0 +1,17 @@
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator_Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator_Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator_Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator_Tests\bin\Debug\Table_Creator_Tests.dll
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator_Tests\bin\Debug\Table_Creator_Tests.pdb
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator_Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator_Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator_Tests\bin\Debug\Table_Creator.exe
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator_Tests\bin\Debug\Table_Creator.pdb
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator_Tests\bin\Debug\Table_Creator.exe.config
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator_Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator_Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator_Tests\obj\Debug\Table_Creator_Tests.csprojAssemblyReference.cache
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator_Tests\obj\Debug\Table_Creator_Tests.csproj.CoreCompileInputs.cache
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator_Tests\obj\Debug\Table_Creator_Tests.csproj.CopyComplete
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator_Tests\obj\Debug\Table_Creator_Tests.dll
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator_Tests\obj\Debug\Table_Creator_Tests.pdb
