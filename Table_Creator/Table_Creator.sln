@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.852
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Table_Creator", "Table_Creator\Table_Creator.csproj", "{DF917571-FAF2-4F1D-8194-D58384E6C8F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Table_Creator_Tests", "Table_Creator_Tests\Table_Creator_Tests.csproj", "{ED84B081-C9CE-4EF9-8846-2727B75C1C3B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DF917571-FAF2-4F1D-8194-D58384E6C8F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF917571-FAF2-4F1D-8194-D58384E6C8F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF917571-FAF2-4F1D-8194-D58384E6C8F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED84B081-C9CE-4EF9-8846-2727B75C1C3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED84B081-C9CE-4EF9-8846-2727B75C1C3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED84B081-C9CE-4EF9-8846-2727B75C1C3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED84B081-C9CE-4EF9-8846-2727B75C1C3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

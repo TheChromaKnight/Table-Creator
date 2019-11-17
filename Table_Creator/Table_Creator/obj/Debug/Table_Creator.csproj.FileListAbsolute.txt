@@ -5,3 +5,14 @@ H:\Software_development\Table_Creator\Table_Creator\Table_Creator\obj\Debug\Tabl
 H:\Software_development\Table_Creator\Table_Creator\Table_Creator\obj\Debug\Table_Creator.csproj.CoreCompileInputs.cache
 H:\Software_development\Table_Creator\Table_Creator\Table_Creator\obj\Debug\Table_Creator.exe
 H:\Software_development\Table_Creator\Table_Creator\Table_Creator\obj\Debug\Table_Creator.pdb
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator\bin\Debug\Microsoft.SqlServer.Management.SmoMetadataProvider.dll
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator\bin\Debug\Microsoft.SqlServer.Smo.dll
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator\bin\Debug\Microsoft.SqlServer.Management.SqlParser.dll
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator\bin\Debug\Microsoft.SqlServer.SqlEnum.dll
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator\bin\Debug\Microsoft.SqlServer.ConnectionInfo.dll
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator\bin\Debug\Microsoft.SqlServer.Diagnostics.STrace.dll
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator\bin\Debug\Microsoft.SqlServer.Management.Sdk.Sfc.dll
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator\bin\Debug\Microsoft.SqlServer.Dmf.Common.dll
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator\bin\Debug\Microsoft.SqlServer.ServiceBrokerEnum.dll
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator\bin\Debug\Microsoft.SqlServer.SqlClrProvider.dll
+H:\Software_development\Table_Creator\Table_Creator\Table_Creator\obj\Debug\Table_Creator.csproj.CopyComplete

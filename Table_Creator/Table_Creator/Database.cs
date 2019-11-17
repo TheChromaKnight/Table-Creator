@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using Microsoft.SqlServer.Management.SmoMetadataProvider;
 using System.Data;
 
 
@@ -17,9 +18,22 @@ namespace Table_Creator
         SqlDataReader reader;
         DataTable dTable;
 
-        //Machine name, so the program can run on any PC which has the database
         String connectionString;
 
+        //Property
+        public String ConnectionString
+        {
+            get
+            {
+                return connectionString;
+            }
+            set
+            {
+                connectionString = value;
+            }
+        }
+
+        //Constructor
         public Database(String connString)
         {
             connectionString = connString;
@@ -40,6 +54,7 @@ namespace Table_Creator
                     command.Connection = sqlconn;
                     command.CommandText = "CREATE TABLE Furniture"+counterStart+ " (Furniture_Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,Furniture_Name varchar(30) NOT NULL) ";
 
+                   
                     command.ExecuteNonQuery();
                 }
             }
@@ -110,13 +125,14 @@ namespace Table_Creator
             using (sqlconn = new SqlConnection(connectionString))
             {
                 sqlconn.Open();
-                    dTable = sqlconn.GetSchema("Tables");
 
-                    foreach (DataRow row in dTable.Rows)
-                    {
-                        tableName = row[2].ToString();
-                        tableList.Add(tableName);
-                    }
+                dTable = sqlconn.GetSchema("Tables");
+
+                foreach (DataRow row in dTable.Rows)
+                {
+                    tableName = row[2].ToString();
+                    tableList.Add(tableName);
+                }
             }
 
             return tableList;
@@ -125,12 +141,14 @@ namespace Table_Creator
 
 
         //This function will return a list from all the tables in the database with the count of rows
+        //(might change list for a dictionary)
         public List<int> getAllTablesRowCount(List<String> tableList)
         {
             List<int> rowCountList = new List<int>();
 
             using (sqlconn = new SqlConnection(connectionString))
             {
+                
                 sqlconn.Open();
 
                 using (command = new SqlCommand())
@@ -153,31 +171,6 @@ namespace Table_Creator
 
             return rowCountList;
         }
-
-
-
-
-
-
-
-        /*Testing purposes only
-        public void dropThenCreateDatabase()
-        {
-            using (sqlconn = new SqlConnection(connectionString))
-            {
-                sqlconn.Open();
-                using (command = new SqlCommand())
-                {
-                    command.Connection = sqlconn;
-                    command.CommandText = "Drop database Table_Creator_Test; Create database Table_Creator_Test;";
-
-                    command.ExecuteNonQuery();
- 
-                }
-            }
-        }
-        */
-
 
     }
 }
