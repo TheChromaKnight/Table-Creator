@@ -529,7 +529,7 @@ namespace Table_Creator
             while (yourNumberIsNumber == false);
         }
 
-        //Choosing the next option (does the user made a mistake and would like to correct it, or the user wants to upload)
+        //Choosing the next option (did the user make a mistake and would like to correct it, or the user wants to upload)
         public void chooseNextOption()
         {
 
